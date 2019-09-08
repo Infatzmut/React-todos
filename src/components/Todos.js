@@ -15,8 +15,11 @@ render(){
 }
 
 Todos.propTypes = {
-    todos:PropTypes.array.isRequired //indica que los parametros pasados desde app a todos 
+    todos:PropTypes.array.isRequired ,//indica que los parametros pasados desde app a todos 
     //deben ser solo arreglos
+    markComplete:PropTypes.func.isRequired,
+    delTodo:PropTypes.func.isRequired
+
 }
 
 export default Todos;

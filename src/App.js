@@ -33,21 +33,21 @@ markComplete = (id)=>{
 
 //delete todo 
 delTodo = (id)=>{
-  this.setState({
+  Axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+  .then(res=>this.setState({
     todos: [...this.state.todos.filter(todo => 
       todo.id !==id)]
-  })
+  }))
 }
 
 //addTodo
 addTodo = (title)=>{
-  const newTodo={
-    id:uuid.v4(),
+  Axios.post('https://jsonplaceholder.typicode.com/todos',{
     title,
     completed:false
-
-  }
-  this.setState({todos :[...this.state.todos,newTodo]})
+  }).then(res=>this.setState(
+    {todos :[...this.state.todos,res.data]}))
+  
 
 }
 render(){
